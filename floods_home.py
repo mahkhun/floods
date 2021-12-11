@@ -57,11 +57,11 @@ class Ui_FloodsHome(object):
 
     def retranslateUi(self, FloodsHome):
         _translate = QtCore.QCoreApplication.translate
-        FloodsHome.setWindowTitle(_translate("FloodsHome", "floods"))
+        FloodsHome.setWindowTitle(_translate("FloodsHome", "Floods | Home"))
         self.floods_picture_label.setText(_translate("FloodsHome", "Insert Picture Here"))
         self.floods_info_label.setText(_translate("FloodsHome", "Insert Information Here"))
-        self.view_button.setText(_translate("FloodsHome", "View Existing Data"))
-        self.create_button.setText(_translate("FloodsHome", "Create New Data"))
+        self.view_button.setText(_translate("FloodsHome", "View Existing Flood Data"))
+        self.create_button.setText(_translate("FloodsHome", "Create New Flood Data"))
         self.quit_button.setText(_translate("FloodsHome", "Quit Application"))
 
 
