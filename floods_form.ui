@@ -70,15 +70,16 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>121</width>
+         <width>371</width>
          <height>16</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-size: 8pt;</string>
+        <string notr="true">font-size: 8pt;
+font-style: italic;</string>
        </property>
        <property name="text">
-        <string>Description</string>
+        <string>The date of when the image of the area was taken.</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="date_lineedit">
@@ -89,6 +90,15 @@
          <width>381</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>e.g. Wednesday, March 14, 2001</string>
        </property>
       </widget>
      </widget>
@@ -107,7 +117,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="location_label">
+      <widget class="QLabel" name="location_title_label">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -128,15 +138,16 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>121</width>
+         <width>181</width>
          <height>16</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-size: 8pt;</string>
+        <string notr="true">font-size: 8pt;
+font-style: italic;</string>
        </property>
        <property name="text">
-        <string>Description</string>
+        <string>The main location of the area.</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="location_lineedit">
@@ -147,6 +158,9 @@
          <width>381</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="placeholderText">
+        <string>e.g. Quezon City, Metro Manila</string>
        </property>
       </widget>
      </widget>
@@ -165,7 +179,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="infrastructure_label">
+      <widget class="QLabel" name="infrastructure_title_label">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -186,15 +200,16 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>121</width>
+         <width>371</width>
          <height>16</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-size: 8pt;</string>
+        <string notr="true">font-size: 8pt;
+font-style: italic;</string>
        </property>
        <property name="text">
-        <string>Description</string>
+        <string>The main infrastrure found in the area.</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="infrastructure_lineedit">
@@ -205,6 +220,9 @@
          <width>381</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="placeholderText">
+        <string>e.g. Roads, Highways, Streets, Buildings, Trees, Terminals</string>
        </property>
       </widget>
      </widget>
@@ -244,15 +262,16 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>121</width>
+         <width>381</width>
          <height>16</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-size: 8pt;</string>
+        <string notr="true">font-size: 8pt;
+font-style: italic;</string>
        </property>
        <property name="text">
-        <string>Description</string>
+        <string>The main damaged infrastructure in the area.</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="damage_lineedit">
@@ -263,6 +282,9 @@
          <width>381</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="placeholderText">
+        <string>e.g. Damaged Roads, Damaged Buildings</string>
        </property>
       </widget>
      </widget>
@@ -302,15 +324,16 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>121</width>
+         <width>381</width>
          <height>16</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-size: 8pt;</string>
+        <string notr="true">font-size: 8pt;
+font-style: italic;</string>
        </property>
        <property name="text">
-        <string>Description</string>
+        <string>The highest estimated water level in the area in meters (m).</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="waterlevel_lineedit">
@@ -321,6 +344,9 @@
          <width>381</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="placeholderText">
+        <string>e.g. 5.00m, 6.27m, 11.90m</string>
        </property>
       </widget>
      </widget>
@@ -383,15 +409,16 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>121</width>
+         <width>281</width>
          <height>16</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-size: 8pt;</string>
+        <string notr="true">font-size: 8pt;
+font-style: italic;</string>
        </property>
        <property name="text">
-        <string>Description</string>
+        <string>The clear image of the area.</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="image_lineedit">
