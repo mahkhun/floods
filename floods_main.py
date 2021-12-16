@@ -63,7 +63,7 @@ class FloodsFormInterface(qtw.QWidget):
 
 
     def browse_files(self):
-        file_name = qtw.QFileDialog.getOpenFileName(self, "Select Image", str(Path.home()))
+        file_name = qtw.QFileDialog.getOpenFileName(self, "Select Image File", str(Path.home()))
         self.ui.image_lineedit.setText(file_name[0])
         print(file_name)
 
