@@ -1,0 +1,19 @@
+{
+    "National Capital Region (NCR)": "national_capital_region",
+    "Cordillera Administrative Region (CAR)": "cordillera_administrative_region",
+    "Ilocos Region (Region I)": "ilocos_region",
+    "Cagayan Valley (Region II)": "cagayan_valley_region",
+    "Central Luzon (Region III)": "central_luzon_region",
+    "Calabarzon (Region IV-A)": "calabarzon_region",
+    "Southwestern Tagalog Region (MIMAROPA)": "mimaropa_region",
+    "Bicol Region (Region V)": "bicol_region",
+    "Western Visayas (Region VI)": "western_visayas_region",
+    "Central Visayas (Region VII)": "central_visayas_region",
+    "Eastern Visayas (Region VIII)": "eastern_visayas_region",
+    "Zamboanga Peninsula (Region IX)": "zamboanga_peninsula_region",
+    "Northern Mindanao (Region X)": "northern_mindanao_region",
+    "Davao Region (Region XI)": "davao_region",
+    "Soccsksargen (Region XII)": "soccsksargen_region",
+    "Caraga (Region XIII)": "caraga_region",
+    "Bangsamoro (BARMM)": "bangsamoro_region"
+}
