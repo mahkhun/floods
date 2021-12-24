@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FloodsSelect</class>
- <widget class="QWidget" name="FloodsSelect">
+ <class>FloodsSelection</class>
+ <widget class="QWidget" name="FloodsSelection">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -97,96 +97,6 @@ font-style: italic;</string>
        <height>22</height>
       </rect>
      </property>
-     <item>
-      <property name="text">
-       <string>Select a Region</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>National Capital Region (NCR)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Cordillera Administrative Region (CAR)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Ilocos Region (Region I) </string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Cagayan Valley (Region II)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Central Luzon (Region III)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Calabarzon (Region IV-A)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Southwestern Tagalog Region (MIMAROPA)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Bicol Region (Region V)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Western Visayas (Region VI)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Central Visayas (Region VII)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Eastern Visayas (Region VIII)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Zamboanga Peninsula (Region IX)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Northern Mindanao (Region X)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Davao Region (Region XI)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Soccsksargen (Region XII)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Caraga (Region XIII)</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Bangsamoro (BARMM)</string>
-      </property>
-     </item>
     </widget>
     <widget class="QLabel" name="cityprovince_label">
      <property name="geometry">
@@ -205,7 +115,7 @@ font-style: italic;</string>
       <string>City/Province</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="cityprovince_combobox">
+    <widget class="QComboBox" name="location_combobox">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -214,11 +124,6 @@ font-style: italic;</string>
        <height>22</height>
       </rect>
      </property>
-     <item>
-      <property name="text">
-       <string>Please select a ----- first.</string>
-      </property>
-     </item>
     </widget>
    </widget>
    <widget class="QFrame" name="date_frame">
@@ -278,11 +183,6 @@ font-style: italic;</string>
        <height>22</height>
       </rect>
      </property>
-     <item>
-      <property name="text">
-       <string>Please select a ----- first.</string>
-      </property>
-     </item>
     </widget>
    </widget>
    <widget class="QPushButton" name="search_button">
