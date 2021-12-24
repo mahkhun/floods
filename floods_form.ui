@@ -38,9 +38,9 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>20</y>
+        <y>0</y>
         <width>401</width>
-        <height>81</height>
+        <height>101</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -53,7 +53,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>10</y>
+         <y>0</y>
          <width>41</width>
          <height>16</height>
         </rect>
@@ -69,7 +69,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>20</y>
          <width>371</width>
          <height>16</height>
         </rect>
@@ -86,7 +86,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>40</y>
          <width>381</width>
          <height>22</height>
         </rect>
@@ -101,14 +101,31 @@ font-style: italic;</string>
         <string>e.g. 2001-03-14 13:10:32 (YYYY-MM-DD HH:MM:SS)</string>
        </property>
       </widget>
+      <widget class="QLabel" name="date_status_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-style: italic;
+color: rgb(255, 20, 20);</string>
+       </property>
+       <property name="text">
+        <string>No date provided!</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QFrame" name="location_frame">
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>110</y>
+        <y>100</y>
         <width>401</width>
-        <height>151</height>
+        <height>181</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -121,7 +138,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>10</y>
+         <y>0</y>
          <width>71</width>
          <height>16</height>
         </rect>
@@ -137,7 +154,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>20</y>
          <width>181</width>
          <height>16</height>
         </rect>
@@ -150,124 +167,21 @@ font-style: italic;</string>
         <string>The main location of the area.</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="cityprovince_lineedit">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>120</y>
-         <width>381</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>e.g. Quezon City, Iloilo, Agusan del Norte</string>
-       </property>
-      </widget>
       <widget class="QComboBox" name="region_combobox">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>70</y>
+         <y>60</y>
          <width>381</width>
          <height>22</height>
         </rect>
        </property>
-       <item>
-        <property name="text">
-         <string>Select a Region</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>National Capital Region (NCR)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Cordillera Administrative Region (CAR)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Ilocos Region (Region I)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Cagayan Valley (Region II)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Central Luzon (Region III)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Calabarzon (Region IV-A)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Southwestern Tagalog Region (MIMAROPA)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Bicol Region (Region V)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Western Visayas (Region VI)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Central Visayas (Region VII)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Eastern Visayas (Region VIII)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Zamboanga Peninsula (Region IX)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Northern Mindanao (Region X)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Davao Region (Region XI)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Soccsksargen (Region XII)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Caraga (Region XIII)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Bangsamoro (BARMM)</string>
-        </property>
-       </item>
       </widget>
       <widget class="QLabel" name="region_label">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>40</y>
          <width>41</width>
          <height>16</height>
         </rect>
@@ -284,7 +198,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>100</y>
+         <y>110</y>
          <width>171</width>
          <height>16</height>
         </rect>
@@ -297,12 +211,56 @@ font-style: italic;</string>
         <string>City/Province</string>
        </property>
       </widget>
+      <widget class="QComboBox" name="location_combobox">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>381</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="cityprovince_status_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>160</y>
+         <width>251</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-style: italic;
+color: rgb(255, 20, 20);</string>
+       </property>
+       <property name="text">
+        <string>No city/province selected!</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="region_status_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>181</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-style: italic;
+color: rgb(255, 20, 20);</string>
+       </property>
+       <property name="text">
+        <string>No region selected!</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QFrame" name="infrastructure_frame">
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>270</y>
+        <y>280</y>
         <width>401</width>
         <height>91</height>
        </rect>
@@ -317,7 +275,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>10</y>
+         <y>0</y>
          <width>171</width>
          <height>21</height>
         </rect>
@@ -333,7 +291,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>20</y>
          <width>371</width>
          <height>16</height>
         </rect>
@@ -350,7 +308,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>40</y>
          <width>381</width>
          <height>22</height>
         </rect>
@@ -359,12 +317,29 @@ font-style: italic;</string>
         <string>e.g. Roads, Highways, Streets, Buildings, Trees, Terminals</string>
        </property>
       </widget>
+      <widget class="QLabel" name="infrastructure_status_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>301</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-style: italic;
+color: rgb(255, 20, 20);</string>
+       </property>
+       <property name="text">
+        <string>No infrastructure provided!</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QFrame" name="damage_frame">
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>370</y>
+        <y>380</y>
         <width>401</width>
         <height>91</height>
        </rect>
@@ -379,7 +354,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>10</y>
+         <y>0</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -395,7 +370,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>20</y>
          <width>381</width>
          <height>16</height>
         </rect>
@@ -412,7 +387,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>40</y>
          <width>381</width>
          <height>22</height>
         </rect>
@@ -421,12 +396,29 @@ font-style: italic;</string>
         <string>e.g. Damaged Roads, Damaged Buildings</string>
        </property>
       </widget>
+      <widget class="QLabel" name="damage_status_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>381</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-style: italic;
+color: rgb(255, 20, 20);</string>
+       </property>
+       <property name="text">
+        <string>No extent of damage provided!</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QFrame" name="waterlevel_frame">
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>470</y>
+        <y>480</y>
         <width>401</width>
         <height>91</height>
        </rect>
@@ -441,7 +433,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>10</y>
+         <y>0</y>
          <width>91</width>
          <height>16</height>
         </rect>
@@ -457,7 +449,7 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>20</y>
          <width>381</width>
          <height>16</height>
         </rect>
@@ -474,13 +466,30 @@ font-style: italic;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>40</y>
          <width>381</width>
          <height>22</height>
         </rect>
        </property>
        <property name="placeholderText">
         <string>e.g. 5.00m, 6.27m, 11.90m</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="waterlevel_status_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>381</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-style: italic;
+color: rgb(255, 20, 20);</string>
+       </property>
+       <property name="text">
+        <string>No water level provided!</string>
        </property>
       </widget>
      </widget>
@@ -498,9 +507,9 @@ font-style: italic;</string>
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>20</y>
+        <y>320</y>
         <width>401</width>
-        <height>121</height>
+        <height>141</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -565,6 +574,23 @@ font-style: italic;</string>
         <string>Browse Files</string>
        </property>
       </widget>
+      <widget class="QLabel" name="image_status_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>120</y>
+         <width>231</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-style: italic;
+color: rgb(255, 20, 20);</string>
+       </property>
+       <property name="text">
+        <string>No image file path provided!</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QFrame" name="navigation_frame">
       <property name="geometry">
@@ -608,175 +634,18 @@ font-style: italic;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QFrame" name="status_frame">
+     <widget class="QLabel" name="image_label">
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>180</y>
+        <y>10</y>
         <width>401</width>
-        <height>211</height>
+        <height>291</height>
        </rect>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+      <property name="text">
+       <string>Insert Label</string>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="status_title_label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>51</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-size: 10pt;
-</string>
-       </property>
-       <property name="text">
-        <string>Status</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="status_title_label_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>171</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-size: 8pt;
-font-style: italic;
-</string>
-       </property>
-       <property name="text">
-        <string>The status of the form.</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="date_status_label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>50</y>
-         <width>211</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-style: italic;
-color: rgb(255, 20, 20);</string>
-       </property>
-       <property name="text">
-        <string>Date: No date provided!</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="region_status_label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>70</y>
-         <width>181</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-style: italic;
-color: rgb(255, 20, 20);</string>
-       </property>
-       <property name="text">
-        <string>Region: No region selected!</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="cityprovince_status_label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>90</y>
-         <width>251</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-style: italic;
-color: rgb(255, 20, 20);</string>
-       </property>
-       <property name="text">
-        <string>City/Province: No city/province selected!</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="infrastructure_status_label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>110</y>
-         <width>301</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-style: italic;
-color: rgb(255, 20, 20);</string>
-       </property>
-       <property name="text">
-        <string>Type of Infrastructure: No infrastructure provided!</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="damage_status_label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>130</y>
-         <width>321</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-style: italic;
-color: rgb(255, 20, 20);</string>
-       </property>
-       <property name="text">
-        <string>Extent of Damage: No extent of damage provided!</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="waterlevel_status_label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>150</y>
-         <width>251</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-style: italic;
-color: rgb(255, 20, 20);</string>
-       </property>
-       <property name="text">
-        <string>Water Level: No water level provided!</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="image_status_label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>170</y>
-         <width>231</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-style: italic;
-color: rgb(255, 20, 20);</string>
-       </property>
-       <property name="text">
-        <string>Image: No image file provided!</string>
-       </property>
-      </widget>
      </widget>
     </widget>
    </item>
