@@ -1,0 +1,136 @@
+{
+    "National Capital Region (NCR)": [
+        "Manila",
+        "Quezon City",
+        "Caloocan",
+        "Las Pinas",
+        "Makati",
+        "Malabon",
+        "Mandaluyong",
+        "Marikina",
+        "Muntinlupa",
+        "Navotas",
+        "Paranaque",
+        "Pasay",
+        "Pasig",
+        "San Juan",
+        "Taguig",
+        "Valenzuela"
+    ],
+    "Cordillera Administrative Region (CAR)": [
+        "Abra",
+        "Apayao",
+        "Benguet",
+        "Ifugao",
+        "Kalinga",
+        "Mountain Province",
+        "Baguio"
+    ],
+    "Ilocos Region (Region I)": [
+        "Ilocos Norte",
+        "Ilocos Sur",
+        "La Union",
+        "Pangasinan"
+    ],
+    "Cagayan Valley (Region II)": [
+        "Batanes",
+        "Cagayan",
+        "Isabela",
+        "Nueva Vizcaya",
+        "Quirino"
+    ],
+    "Central Luzon (Region III)": [
+        "Aurora",
+        "Bataan",
+        "Bulacan",
+        "Nueva Ecija",
+        "Pampanga",
+        "Tarlac",
+        "Zambales"
+    ],
+    "Calabarzon (Region IV-A)": [
+        "Batangas",
+        "Cavite",
+        "Laguna",
+        "Quezon",
+        "Rizal"
+    ],
+    "Southwestern Tagalog Region (MIMAROPA)": [
+        "Marinduque",
+        "Occidental Mindoro",
+        "Oriental Mindoro",
+        "Palawan",
+        "Romblon"
+    ],
+    "Bicol Region (Region V)": [
+        "Albay",
+        "Camarines Norte",
+        "Camarines Sur",
+        "Catanduanes",
+        "Masbate",
+        "Sorsogon"
+    ],
+    "Western Visayas (Region VI)": [
+        "Aklan",
+        "Antique",
+        "Capiz",
+        "Guimaras",
+        "Iloilo",
+        "Negros Occidental"
+    ],
+    "Central Visayas (Region VII)": [
+        "Bohol",
+        "Cebu",
+        "Negros Oriental",
+        "Siquijor"
+    ],
+    "Eastern Visayas (Region VIII)": [
+        "Biliran",
+        "Eastern Samar",
+        "Leyte",
+        "Northern Samar",
+        "Samar",
+        "Southern Leyte"
+    ],
+    "Zamboanga Peninsula (Region IX)": [
+        "Zamboanga del Norte",
+        "Zamboanga del Sur",
+        "Zamboanga Sibugay"
+    ],
+    "Northern Mindanao (Region X)": [
+        "Bukidnon",
+        "Camiguin",
+        "Lanao del Norte",
+        "Misamis Occidental",
+        "Misamis Oriental"
+    ],
+    "Davao Region (Region XI)": [
+        "Davao de Oro",
+        "Davao del Norte",
+        "Davao del Sur",
+        "Davao Occidental",
+        "Davao Oriental"
+    ],
+    "Soccsksargen (Region XII)": [
+        "Cotabato",
+        "Sarangani",
+        "South Cotabato",
+        "Sultan Kudarat",
+        "General Santos"
+    ],
+    "Caraga (Region XIII)": [
+        "Agusan del Norte",
+        "Agusan del Sur",
+        "Dinagat Islands",
+        "Surigao del Norte",
+        "Surigao del Sur"
+    ],
+    "Bangsamoro (BARMM)": [
+        "Basilan",
+        "Lanao del Sur",
+        "Maguindanao",
+        "Sulu",
+        "Tawi-Tawi",
+        "Cotabato City"
+    ]
+}
