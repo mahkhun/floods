@@ -104,7 +104,7 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
     def close_form(self) -> None:
         """ Closes the FloodsForm window. """
         self.close()
-        self.close_form_signal.emit()        
+        self.cancel_form_signal.emit()        
 
 
     def accomplished_form(self, data_dict) -> None:
