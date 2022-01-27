@@ -201,6 +201,7 @@ class FloodsFormDialog(qtw.QDialog, Ui_FloodsFormDialog):
 class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
 
     close_selection_signal = qtc.pyqtSignal()
+    region_combobox_change_signal = qtc.pyqtSignal(str, int)
     
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -211,7 +212,8 @@ class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
         self.update_region_combobox()
 
         # Forms a connection between region combobox and location combobox.
-        self.region_combobox.currentIndexChanged.connect(self.update_location_combobox)
+        self.region_combobox.activated.connect(self.handle_region_combobox_activation)
+        self.region_combobox_change_signal.connect(self.update_location_combobox)
 
         # Update the location combobox according to the current index of the region combobox.
         self.update_location_combobox(self.region_combobox.currentText(), self.region_combobox.currentIndex())
@@ -224,6 +226,11 @@ class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
 
         # Forms a connection to the cancel button, causing the FloodsSelection window to close when clicked.
         self.cancel_button.clicked.connect(self.close_selection)
+
+
+    # Temporary function
+    def handle_region_combobox_activation(self) -> None:
+        self.region_combobox_change_signal.emit(self.region_combobox.currentText(), self.region_combobox.currentIndex())
 
 
     def close_selection(self) -> None:
