@@ -1,3 +1,4 @@
+import re
 import sys
 import json
 from pathlib import Path
@@ -85,10 +86,13 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
 
     cancel_form_signal = qtc.pyqtSignal()
     accomplished_form_signal = qtc.pyqtSignal(dict)
+    valid = False
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.setupUi(self)
+
+        self.region_combobox.addItem("Select a region", ["Select a region first!"])
 
         for region, cities in regions_cities.items():
             self.region_combobox.addItem(region, cities)
@@ -96,9 +100,18 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
         self.region_combobox.currentIndexChanged.connect(self.update_location_combobox)
         self.update_location_combobox(self.region_combobox.currentIndex())
 
+        self.date_lineedit.textChanged.connect(self.check_form)
+        self.region_combobox.activated.connect(self.check_form)
+        self.location_combobox.activated.connect(self.check_form)
+        self.infrastructure_lineedit.textChanged.connect(self.check_form)
+        self.damage_lineedit.textChanged.connect(self.check_form)
+        self.waterlevel_lineedit.textChanged.connect(self.check_form)
+        self.image_lineedit.textChanged.connect(self.check_form)
+
         self.cancel_button.clicked.connect(self.close_form)
         self.image_browse_button.clicked.connect(self.browse_files)
         self.submit_button.clicked.connect(self.submit_form)
+
 
 
     def close_form(self) -> None:
@@ -127,37 +140,132 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
         self.image_lineedit.setText(file_name[0])
 
 
+    def check_form(self) -> None:
+        """ Checks if the information proided by the user on the form is valid. """
+        self.valid = True
+
+        # Validates the date
+        date_text = self.date_lineedit.text()
+        if not date_text:
+            # No date is provided
+            self.date_status_label.setText("No date provided!")
+            self.date_status_label.setStyleSheet(r"color: red; font-style: italic")
+            self.valid = False
+        elif not re.search(r"^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$", date_text):
+            # Provided date is not on the proper format
+            self.date_status_label.setText("Date provided is in improper format!")
+            self.date_status_label.setStyleSheet(r"color: red; font-style: italic")
+            self.valid = False
+        else:
+            # The data is provided and is on the proper format
+            self.date_status_label.setText("Date is provided!")
+            self.date_status_label.setStyleSheet(r"color: green; font-style: italic")
+
+
+        # Validates the region
+        region_text = self.region_combobox.currentText()
+        if region_text == "Select a region":
+            # Region is empty
+            self.region_status_label.setText("No region selected!")
+            self.region_status_label.setStyleSheet(r"color: red; font-style: italic")
+            self.valid = False
+        else:
+            # A region is selected
+            self.region_status_label.setText("Region is provided!")
+            self.region_status_label.setStyleSheet(r"color: green; font-style: italic")
+
+
+        # Validates the city/province
+        cityprovince_text = self.location_combobox.currentText()
+        if cityprovince_text == "Select a region first!":
+            self.cityprovince_status_label.setText("No city/province selected!")
+            self.cityprovince_status_label.setStyleSheet(r"color: red; font-style: italic")
+            self.valid = False
+        else:
+            self.cityprovince_status_label.setText("City/provice is provided!")
+            self.cityprovince_status_label.setStyleSheet(r"color: green; font-style: italic")
+
+
+        # Validates the infrastructure description
+        infrastructure_text = self.infrastructure_lineedit.text()
+        if not infrastructure_text: 
+            self.infrastructure_status_label.setText("No infrastructure provided!")
+            self.infrastructure_status_label.setStyleSheet(r"color: red; font-style: italic")
+            self.valid = False
+        else:
+            self.infrastructure_status_label.setText("Infrastructure is provided!")
+            self.infrastructure_status_label.setStyleSheet(r"color: green; font-style: italic")
+
+
+        # Validates the damage description
+        damage_text = self.damage_lineedit.text()
+        if not damage_text:
+            self.damage_status_label.setText("No extent of damage is provided!")
+            self.damage_status_label.setStyleSheet(r"color: red; font-style: italic")
+            self.valid = False
+        else:
+            self.damage_status_label.setText("Extent of damage is provided!")
+            self.damage_status_label.setStyleSheet(r"color: green; font-style: italic")
+
+
+        # Validates the water level
+        water_level_text = self.waterlevel_lineedit.text()
+        if not water_level_text:
+            self.waterlevel_status_label.setText("No water level is provided!")
+            self.valid = False
+            self.waterlevel_status_label.setStyleSheet(r"color: red; font-style: italic")
+        elif not re.search(r"^\d{0,}\.\d{2,}$", water_level_text):
+            self.waterlevel_status_label.setText("Water level provided is in improper format!")
+            self.waterlevel_status_label.setStyleSheet(r"color: red; font-style: italic")
+            self.valid = False
+        else:
+            self.waterlevel_status_label.setText("Water level is provided!")
+            self.waterlevel_status_label.setStyleSheet(r"color: green; font-style: italic")
+
+
+        # Validates image path
+        image_path = self.image_lineedit.text()
+        if not image_path:
+            self.image_status_label.setText("No image file path is provided!")
+            self.image_status_label.setStyleSheet(r"color: red; font-style: italic")
+            self.valid = False
+        else:
+            self.image_status_label.setText("Image file path is provided!")
+            self.image_status_label.setStyleSheet(r"color: green; font-style: italic")
+
+        
     def submit_form(self) -> None:
         """ Gathers data about floods. """
-        form_dict = {
-            "date": self.date_lineedit.text(),
-            "region": self.region_combobox.currentText(),
-            "city/province": self.location_combobox.currentText(),
-            "type of infrastructure" : self.infrastructure_lineedit.text(),
-            "extent of damage": self.damage_lineedit.text(),
-            "water level": float(self.waterlevel_lineedit.text()),
-            "image": self.image_lineedit.text()
-            }
-        error_status = [kv_pair[0] for kv_pair in list(filter(lambda kv_pair: not kv_pair[1], form_dict.items()))]
-        if error_status:
-            print(error_status)
-            # Display errors, dont send
-        else:
-            table_name = db_tablenames[form_dict["region"]]
-            # Create database
-            db.create_table(table_name)
-            # Insert database
-            db.insert_table(
-                table_name,
-                form_dict["date"],
-                form_dict["region"],
-                form_dict["city/province"],
-                form_dict["type of infrastructure"],
-                form_dict["extent of damage"],
-                form_dict["water level"],
-                form_dict["image"]
-            )
-            self.accomplished_form(form_dict)
+        if self.valid:
+            form_dict = {
+                "date": self.date_lineedit.text(),
+                "region": self.region_combobox.currentText(),
+                "city/province": self.location_combobox.currentText(),
+                "type of infrastructure" : self.infrastructure_lineedit.text(),
+                "extent of damage": self.damage_lineedit.text(),
+                "water level": float(self.waterlevel_lineedit.text()),
+                "image": self.image_lineedit.text()
+                }
+            error_status = [kv_pair[0] for kv_pair in list(filter(lambda kv_pair: not kv_pair[1], form_dict.items()))]
+            if error_status:
+                print(error_status)
+                # Display errors, dont send
+            else:
+                table_name = db_tablenames[form_dict["region"]]
+                # Create database
+                db.create_table(table_name)
+                # Insert database
+                db.insert_table(
+                    table_name,
+                    form_dict["date"],
+                    form_dict["region"],
+                    form_dict["city/province"],
+                    form_dict["type of infrastructure"],
+                    form_dict["extent of damage"],
+                    form_dict["water level"],
+                    form_dict["image"]
+                )
+                self.accomplished_form(form_dict)
             
 
 class FloodsFormDialog(qtw.QDialog, Ui_FloodsFormDialog):
@@ -258,7 +366,7 @@ class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
             location_list = sorted(list(set(db.query_table(db_tablenames[region], "location")["location"])))
             region_location_dict[region].extend(location_list) # location, yes
 
-        # Each region and location pair will be stored in the reion combobox.
+        # Each region and location pair will be stored in the region combobox.
         for region, location in region_location_dict.items():
             self.region_combobox.addItem(region, location)
 
