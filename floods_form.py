@@ -43,7 +43,7 @@ class Ui_FloodsForm(object):
         self.date_lineedit.setText("")
         self.date_lineedit.setObjectName("date_lineedit")
         self.date_status_label = QtWidgets.QLabel(self.date_frame)
-        self.date_status_label.setGeometry(QtCore.QRect(10, 70, 141, 16))
+        self.date_status_label.setGeometry(QtCore.QRect(10, 70, 381, 16))
         self.date_status_label.setStyleSheet("font-style: italic;\n"
 "color: rgb(255, 20, 20);")
         self.date_status_label.setObjectName("date_status_label")
@@ -78,12 +78,12 @@ class Ui_FloodsForm(object):
         self.location_combobox.setGeometry(QtCore.QRect(10, 130, 381, 22))
         self.location_combobox.setObjectName("location_combobox")
         self.cityprovince_status_label = QtWidgets.QLabel(self.location_frame)
-        self.cityprovince_status_label.setGeometry(QtCore.QRect(10, 160, 251, 16))
+        self.cityprovince_status_label.setGeometry(QtCore.QRect(10, 160, 381, 16))
         self.cityprovince_status_label.setStyleSheet("font-style: italic;\n"
 "color: rgb(255, 20, 20);")
         self.cityprovince_status_label.setObjectName("cityprovince_status_label")
         self.region_status_label = QtWidgets.QLabel(self.location_frame)
-        self.region_status_label.setGeometry(QtCore.QRect(10, 90, 181, 16))
+        self.region_status_label.setGeometry(QtCore.QRect(10, 90, 381, 16))
         self.region_status_label.setStyleSheet("font-style: italic;\n"
 "color: rgb(255, 20, 20);")
         self.region_status_label.setObjectName("region_status_label")
@@ -105,7 +105,7 @@ class Ui_FloodsForm(object):
         self.infrastructure_lineedit.setGeometry(QtCore.QRect(10, 40, 381, 22))
         self.infrastructure_lineedit.setObjectName("infrastructure_lineedit")
         self.infrastructure_status_label = QtWidgets.QLabel(self.infrastructure_frame)
-        self.infrastructure_status_label.setGeometry(QtCore.QRect(10, 70, 301, 16))
+        self.infrastructure_status_label.setGeometry(QtCore.QRect(10, 70, 381, 16))
         self.infrastructure_status_label.setStyleSheet("font-style: italic;\n"
 "color: rgb(255, 20, 20);")
         self.infrastructure_status_label.setObjectName("infrastructure_status_label")
@@ -179,7 +179,7 @@ class Ui_FloodsForm(object):
         self.image_browse_button.setGeometry(QtCore.QRect(120, 80, 141, 28))
         self.image_browse_button.setObjectName("image_browse_button")
         self.image_status_label = QtWidgets.QLabel(self.image_frame)
-        self.image_status_label.setGeometry(QtCore.QRect(10, 120, 231, 16))
+        self.image_status_label.setGeometry(QtCore.QRect(10, 120, 381, 16))
         self.image_status_label.setStyleSheet("font-style: italic;\n"
 "color: rgb(255, 20, 20);")
         self.image_status_label.setObjectName("image_status_label")

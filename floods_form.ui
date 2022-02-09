@@ -106,7 +106,7 @@ font-style: italic;</string>
         <rect>
          <x>10</x>
          <y>70</y>
-         <width>141</width>
+         <width>381</width>
          <height>16</height>
         </rect>
        </property>
@@ -226,7 +226,7 @@ font-style: italic;</string>
         <rect>
          <x>10</x>
          <y>160</y>
-         <width>251</width>
+         <width>381</width>
          <height>16</height>
         </rect>
        </property>
@@ -243,7 +243,7 @@ color: rgb(255, 20, 20);</string>
         <rect>
          <x>10</x>
          <y>90</y>
-         <width>181</width>
+         <width>381</width>
          <height>16</height>
         </rect>
        </property>
@@ -322,7 +322,7 @@ font-style: italic;</string>
         <rect>
          <x>10</x>
          <y>70</y>
-         <width>301</width>
+         <width>381</width>
          <height>16</height>
         </rect>
        </property>
@@ -579,7 +579,7 @@ font-style: italic;</string>
         <rect>
          <x>10</x>
          <y>120</y>
-         <width>231</width>
+         <width>381</width>
          <height>16</height>
         </rect>
        </property>
