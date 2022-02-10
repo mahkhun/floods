@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>600</height>
+    <width>1400</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1000</width>
-    <height>600</height>
+    <width>1400</width>
+    <height>650</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1000</width>
-    <height>600</height>
+    <width>1400</width>
+    <height>650</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
      <x>11</x>
      <y>11</y>
      <width>291</width>
-     <height>578</height>
+     <height>611</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -201,8 +201,8 @@ font-style: italic;</string>
    <widget class="QPushButton" name="cancel_button">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>540</y>
+      <x>60</x>
+      <y>560</y>
       <width>151</width>
       <height>28</height>
      </rect>
@@ -211,13 +211,13 @@ font-style: italic;</string>
      <string>Cancel</string>
     </property>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="description_frame">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>290</y>
       <width>271</width>
-      <height>191</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -226,12 +226,12 @@ font-style: italic;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="status_label">
+    <widget class="QLabel" name="description">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>71</width>
+       <width>251</width>
        <height>16</height>
       </rect>
      </property>
@@ -239,10 +239,10 @@ font-style: italic;</string>
       <string notr="true">font-size: 10pt;</string>
      </property>
      <property name="text">
-      <string>Status</string>
+      <string>Description</string>
      </property>
     </widget>
-    <widget class="QLabel" name="status_description_label">
+    <widget class="QLabel" name="d_text">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -266,8 +266,8 @@ font-style: italic;</string>
     <rect>
      <x>308</x>
      <y>11</y>
-     <width>681</width>
-     <height>578</height>
+     <width>1081</width>
+     <height>611</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -276,6 +276,145 @@ font-style: italic;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <widget class="QFrame" name="floodframe_original">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>491</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_orig">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>181</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Original Flood Image</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="img_orig">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>471</width>
+       <height>471</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Original Flood Image Holder</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="alter_button_frame">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>550</y>
+      <width>621</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>181</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Display Image 1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>10</y>
+       <width>181</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Display Image 2</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>10</y>
+       <width>181</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Display Image 3</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="floodframe_alters">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>10</y>
+      <width>491</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_alter">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>181</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Altered Flood Image</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="img_alter">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>471</width>
+       <height>471</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Altered Flood Image Holder</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>
