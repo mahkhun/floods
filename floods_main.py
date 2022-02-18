@@ -92,7 +92,7 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
 
-        self.region_combobox.addItem("Select a region", ["Select a region first!"])
+        self.region_combobox.addItem("", [""])
 
         for region, cities in regions_cities.items():
             self.region_combobox.addItem(region, cities)
@@ -100,18 +100,17 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
         self.region_combobox.currentIndexChanged.connect(self.update_location_combobox)
         self.update_location_combobox(self.region_combobox.currentIndex())
 
-        self.date_lineedit.textChanged.connect(self.check_form)
-        self.region_combobox.activated.connect(self.check_form)
-        self.location_combobox.activated.connect(self.check_form)
-        self.infrastructure_lineedit.textChanged.connect(self.check_form)
-        self.damage_lineedit.textChanged.connect(self.check_form)
-        self.waterlevel_lineedit.textChanged.connect(self.check_form)
-        self.image_lineedit.textChanged.connect(self.check_form)
+        self.date_lineedit.textChanged.connect(self.validate_form)
+        self.region_combobox.activated.connect(self.validate_form)
+        self.location_combobox.activated.connect(self.validate_form)
+        self.infrastructure_lineedit.textChanged.connect(self.validate_form)
+        self.damage_lineedit.textChanged.connect(self.validate_form)
+        self.waterlevel_lineedit.textChanged.connect(self.validate_form)
+        self.image_lineedit.textChanged.connect(self.validate_form)
 
         self.cancel_button.clicked.connect(self.close_form)
         self.image_browse_button.clicked.connect(self.browse_files)
         self.submit_button.clicked.connect(self.submit_form)
-
 
 
     def close_form(self) -> None:
@@ -140,8 +139,8 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
         self.image_lineedit.setText(file_name[0])
 
 
-    def check_form(self) -> None:
-        """ Checks if the information proided by the user on the form is valid. """
+    def validate_form(self) -> None:
+        """ Validates the information proided by the user on the form. """
         self.valid = True
 
         # Validates the date
@@ -153,7 +152,7 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
             self.valid = False
         elif not re.search(r"^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$", date_text):
             # Provided date is not on the proper format
-            self.date_status_label.setText("Date provided is in improper format!")
+            self.date_status_label.setText("Date provided is invalid or is in improper format!")
             self.date_status_label.setStyleSheet(r"color: red; font-style: italic")
             self.valid = False
         else:
@@ -164,7 +163,7 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
 
         # Validates the region
         region_text = self.region_combobox.currentText()
-        if region_text == "Select a region":
+        if region_text == "":
             # Region is empty
             self.region_status_label.setText("No region selected!")
             self.region_status_label.setStyleSheet(r"color: red; font-style: italic")
@@ -177,7 +176,7 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
 
         # Validates the city/province
         cityprovince_text = self.location_combobox.currentText()
-        if cityprovince_text == "Select a region first!":
+        if cityprovince_text == "":
             self.cityprovince_status_label.setText("No city/province selected!")
             self.cityprovince_status_label.setStyleSheet(r"color: red; font-style: italic")
             self.valid = False
@@ -215,7 +214,7 @@ class FloodsFormInterface(qtw.QWidget, Ui_FloodsForm):
             self.valid = False
             self.waterlevel_status_label.setStyleSheet(r"color: red; font-style: italic")
         elif not re.search(r"^\d{0,}\.\d{2,}$", water_level_text):
-            self.waterlevel_status_label.setText("Water level provided is in improper format!")
+            self.waterlevel_status_label.setText("Water level provided is invalid or is in improper format!")
             self.waterlevel_status_label.setStyleSheet(r"color: red; font-style: italic")
             self.valid = False
         else:
@@ -310,6 +309,7 @@ class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
 
     close_selection_signal = qtc.pyqtSignal()
     region_combobox_change_signal = qtc.pyqtSignal(str, int)
+    data_signal = qtc.pyqtSignal(dict)
     
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -320,7 +320,7 @@ class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
         self.update_region_combobox()
 
         # Forms a connection between region combobox and location combobox.
-        self.region_combobox.activated.connect(self.handle_region_combobox_activation)
+        self.region_combobox.currentTextChanged.connect(self.handle_region_combobox_activation)
         self.region_combobox_change_signal.connect(self.update_location_combobox)
 
         # Update the location combobox according to the current index of the region combobox.
@@ -331,6 +331,11 @@ class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
 
         # Update the date combobox according to the current index of the location combobox.
         self.update_date_combobox(self.location_combobox.currentIndex())
+
+        # Forms a connection to the region_combobox, location_combobox, and date_combobox, causing changes to all the information on the form.
+        self.region_combobox.currentTextChanged.connect(self.update_information)
+        self.location_combobox.currentTextChanged.connect(self.update_information)
+        self.date_combobox.currentTextChanged.connect(self.update_information)
 
         # Forms a connection to the cancel button, causing the FloodsSelection window to close when clicked.
         self.cancel_button.clicked.connect(self.close_selection)
@@ -361,6 +366,9 @@ class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
         # Each region in available_regions will have a corresponding list where their locations based on floods_data.db will be stored.
         region_location_dict = {region:[] for region in available_regions}
 
+        # Adds an empty slot for the region_combobox and cityprovince combobox 
+        self.region_combobox.addItem("", [""])
+
         # The corresponding locations for each region in the available_regions will be stored in its respective list.
         for region in available_regions:
             location_list = sorted(list(set(db.query_table(db_tablenames[region], "location")["location"])))
@@ -379,10 +387,14 @@ class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
         # Gathers the respective list of locations for the current region selected in the region combobox.
         locations = self.region_combobox.itemData(index)
 
-        # For each location in locations, its corresponding list of dates will be added to the location combobox.
-        for location in locations:
-            date_list = sorted(db.query_table(db_tablenames[region], "date", WHERE=f"location=='{location}'")["date"])
-            self.location_combobox.addItem(location, date_list)
+        try:
+            # For each location in locations, its corresponding list of dates will be added to the location combobox.
+            for location in locations:
+                date_list = sorted(db.query_table(db_tablenames[region], "date", WHERE=f"location=='{location}'")["date"])
+                self.location_combobox.addItem(location, date_list)
+        except:
+            pass
+            self.location_combobox.addItem("", [""])
 
 
     def update_date_combobox(self, index) -> None:
@@ -396,6 +408,37 @@ class FloodsSelectionInterface(qtw.QWidget, Ui_FloodsSelection):
         # The corresponding list of dates will be added to the date combobox.
         if dates:
             self.date_combobox.addItems(dates)
+
+
+    def update_information(self) -> None:
+        """ Updates all the information in the whole form. """
+        try:
+            region = db_tablenames[self.region_combobox.currentText()]
+            date = self.date_combobox.currentText()
+            floods_data = db.query_table(region, "image", "main_infrastructure", "damaged_infrastructure", "water_level", WHERE="date=='{}'".format(date))
+            self.update_image(floods_data["image"][0])
+            self.update_description(floods_data["main_infrastructure"][0], floods_data["damaged_infrastructure"][0], "{} m".format(floods_data["water_level"][0]))
+        except:
+            self.update_image("")
+            self.update_description("None", "None", "None")
+
+
+    def update_image(self, blob = str) -> None:
+        """ Updates the image. """
+        try:
+            pix = qtg.QPixmap()
+            if pix.loadFromData(blob):
+                self.image.setPixmap(pix)
+                self.image.setScaledContents(True)
+        except:
+            self.image.clear()
+
+
+    def update_description(self, main_infrastructure = str, damaged_infrastructure = str, water_level = str) -> None:
+        """ Updates the infrastructure_text, damage_text, and water_level_text. """
+        self.infrastructure_text.setText(main_infrastructure)
+        self.damage_text.setText(damaged_infrastructure)
+        self.water_level_text.setText(water_level)
 
 
 if __name__ == "__main__":
