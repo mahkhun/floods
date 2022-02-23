@@ -85,6 +85,5 @@ def query_table(table_name, *columns, **filters) -> dict:
 
 if __name__ == "__main__":
     # create_database()
-    print(query_table("sqlite_master", "name", WHERE="type='table'"))
-    # query_table("national_capital_region", "location", "water_level")
-    # print(query_table("national_capital_region", "date", WHERE="location=='Quezon City'"))
+    # print(query_table("sqlite_master", "name", WHERE="type='table'"))
+    print(query_table("national_capital_region", "image", "region", "location" ,WHERE="date=='2001-03-14 13:10:32'"))
