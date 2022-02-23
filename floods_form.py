@@ -196,6 +196,7 @@ class Ui_FloodsForm(object):
         self.submit_button.setObjectName("submit_button")
         self.image_label = QtWidgets.QLabel(self.floods_image_frame)
         self.image_label.setGeometry(QtCore.QRect(40, 10, 401, 291))
+        self.image_label.setText("")
         self.image_label.setObjectName("image_label")
         self.horizontalLayout.addWidget(self.floods_image_frame)
 
@@ -233,7 +234,6 @@ class Ui_FloodsForm(object):
         self.image_status_label.setText(_translate("FloodsForm", "No image file path provided!"))
         self.cancel_button.setText(_translate("FloodsForm", "Cancel"))
         self.submit_button.setText(_translate("FloodsForm", "Submit"))
-        self.image_label.setText(_translate("FloodsForm", "Insert Label"))
 
 
 if __name__ == "__main__":

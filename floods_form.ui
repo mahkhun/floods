@@ -644,7 +644,7 @@ color: rgb(255, 20, 20);</string>
        </rect>
       </property>
       <property name="text">
-       <string>Insert Label</string>
+       <string/>
       </property>
      </widget>
     </widget>
